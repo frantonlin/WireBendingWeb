@@ -46,7 +46,7 @@
 						<header>
 							<div class="inner">
 								<h2>Hardware</h2>
-								<p>A statement about hardware.</p>
+								<p>The Mechanical System of our project has three main subsystems: wire feeder and straightner, wire cutter, and wire bending. *Insert CAD of our project's mechanical design*</p>
 							</div>
 						</header>
 
@@ -54,15 +54,20 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Sprint One</h3>
-									<p>For the electrical component of the first sprint, we wanted to figure out control of the the stepper motors and implement some input sensors that would control a parameter of the system (motor speed, feed time, etc.). We obtained a couple stepper motors from the mechanical stockrooom and an LCD from the electrical stockroom. To test the stepper motors, we measured the resistance between pairs of leads to determine the internal coil wiring. From this information, we could correctly wire the stepper motors to the Adafruit motor driver shield. For this sprint, we chose to use the Adafruit motor shield as a driver to simplify the interfacing between the stepper motors and the Arduino. Additionally, all of us have interacted with the motor shield in the previous lab and there are many available for us to use. Referencing the example code, we successfully implemented control of the stepper motors using the motor shield. 
-									
-									Since the motors were functioning properly we added two input sensors: a potentiometer and a button. The potentiometer reads a value between 1023. The value was then converted to a value corresponding to the number of holes on a breadboard one wished the length of wire to cross using simple math. By reading this value in the code, the user was able to choose a value for the length of the wire. The button used a debounce and an interrupt which we learned in Lab 1 to be read accurately. When the button was pressed, the value currently given by the potentiometer was selected as the length of the wire to be cut. 
+									<h3 class="major">Sprint 1</h3>
+									<p>For the first sprint our group focused on getting a prototype of two of our core mechanical systems working with motor control: the cutting mechanism and the feeding mechanism </p>
+									<span class="image left">
+										<img src = "images/Cutter_1.jpg">
+									</span>
+									<p> Our final goal was a cutting mechanism that could be controlled. By controlling how much the mechanism cuts we would allow our project to both strip and cut and wire. For a prototype we adapted a manual wire stripper that was controlled by a stepper motor that adjusted the amount the stripper was closed by pulling a wire connecting the handles.
+									</p>
+									<span class="image fit">
+										<img src = "images/Feeding_1.jpg">
+									</span>
+									<p> We modeled our feeding mechanism after industrial feeding mechanisms. Wire is fitted between two wheels: one which was connected to a stepper motor with high torque and the other was free to rotate. </p>
 
-									Having successsfully tested the stepper motors and sensors, we moved on to the LCD. One of our team members has a driver chip for the I2C LCD so we decided to use it to simply our work. After downloading the driver for the I2C from the internet, we went to work on the code. After testing several examples we couldnt get the LCD to work. The screen would light up but nothing would show up. After changing the code the screen wouldnt even light up. This issue was not fixed before the end of sprint one.</p>
-
-									<h3 class="major">Sprint Two</h3>
-									<p>Stuff got done!!!!!!!!!!!!!!!!!!!!</p>
+									<h3 class="major">Mechanical Lesson from the Sprint</h3>
+									<p>Both the feeding and cutting mechanism ran into during testing due to the tolerances on the wheels(the wire wouldn't fit) and issues with the torque provided by the motors being insufficient to push the wire through at a reasonable pace</p>
 
 								</div>
 							</div>
