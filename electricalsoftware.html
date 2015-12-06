@@ -69,6 +69,16 @@
                                     
                                     <p>This sprint, we also ordered a more powerful stepper motor for the feeding mechanism and a driver capable of powering the new motor. After reading the documentation for the driver and the motor, we wired them together and to the Arduino. Once the stepper motor was functional using the provided sample code, we used the AccelStepper library to asynchronously control the position of the stepper motor. With some math, this library allows us to very easily feed a specified length of wire. Finally, we connected the enable pin of the driver to the Arduino, which allows us to disable the mostfets when the motor is not feeding. Disabling the mosfets removes the holding capabilities of the stepper motor, but puts significantly less strain on the motor driver.</p>
 
+                                    <h3 class="major">Sprint Three</h3>
+                                    <p> November 20 2015 </p>
+                                    <p>For this sprint, we began working on a front-end application to interface with the wire bender. Chris worked on an interface in Python to send feeding and bending commands to the Arduino over serial, and Franton worked on reading serial input on the Arduino. Wilson soldered the circuit for the LCD display onto a protoboard so that all of our electrical components can work without a breadboard.</p>
+                                    
+                                    <p>We acquired a more powerful and more accurate (0.9° per step) stepper motor for the bending mechanism. This motor was wired up the same way as the feeding motor, and was fairly easy to add in to the code using the AccelStepper library, due to its asynchronous functions. Upon testing, the bending stepper motor appeared to skip steps, even when not under load. Despite this slight lack in precision, the stepper motor was still able to bend the wire fairly predictably.</p>
+
+                                    <p>In this sprint, we ran out of time and did not manage to integrate all of the electrical and software parts together. Chris created two python programs, one with a user interface that could send bending and feeding commands over serial and another that would send commands from a correctly formatted .csv file. The Arduino received and performed bending and feeding commands from the built in serial monitor. The LCD driver board was finished, but we did not get a chance to test it.</p>
+
+                                    <p>At the end of this sprint, we achieved our minimum viable product of being able to feed and bend wire according to commands sent from a computer. Going into the next sprint, we plan to finish integration of the electrical and software components, and further calibrate and increase the precision of the system. If we make enough progress, we hope to make the system wireless by using an Arduino wifi sheild.</p>
+
                                 </div>
                             </div>
 
