@@ -57,45 +57,43 @@
                                 <div class="inner">
 
                                     <h3 class="major">Sprint 1: 10/16/15</h3>
-                                    <p>For the first sprint our group focused on getting a prototype of two of our core mechanical systems working with motor control: the cutting mechanism and the feeding mechanism </p>
+                                    <p> For the first sprint, we focused on getting working individual prototypes of each of the subsystems. For the mechanical side, we built a basic wire feeding and cutting mechanism. For the electrical side, we figured out how to control stepper motors and implemented basic control using a potentiometer and LCD screen. </p>
                                     <span class="image left">
                                         <img src = "images/Cutter_1.jpg">
                                     </span>
-                                    <p> Our final goal was a cutting mechanism that could be controlled. By controlling how much the mechanism cuts we would allow our project to both strip and cut and wire. For a prototype we adapted a manual wire stripper that was controlled by a stepper motor that adjusted the amount the stripper was closed by pulling a wire connecting the handles.
-                                    </p>
                                     <span class="image fit">
                                         <img src = "images/Feeding_1.jpg">
                                     </span>
-                                    <p> We modeled our feeding mechanism after industrial feeding mechanisms. Wire is fitted between two wheels: one which was connected to a stepper motor with high torque and the other was free to rotate. </p>
+                                     <span class="image left"> <img src="images/electrical_1.jpg"> </span>
+                                   
+                                    <p> 
+                                    By the end of the sprint, we had a few seperately working devices, with a low level of integration. 
+                                    </p>
 
-                                    <h3 class="major">Mechanical Lessons from the Sprint</h3>
-                                    <p>Both the feeding and cutting mechanism ran into during testing due to the tolerances on the wheels(the wire wouldn't fit) and issues with the torque provided by the motors being insufficient to push the wire through at a reasonable pace</p>
+                                    <h3 class="major">Integration Lessons from the Sprint</h3>
+                                    <p> We tried to integrate the system after developing the individual components. There were difficulties in getting the system to work correctly together. We will spend more time in the future with an emphasis on designing for integration and starting integration earlier in the process in order to minimize difficulties. 
+                                    </p>
 
 
                                     <h3 class="major"> Sprint 2: 10/27/15</h3>
-                                    <p>For the second sprint our group focused on getting a working `wire feeding system with basic controls</p>
+                                    <p>In this sprint, we had accomplished the first half of our MVP in getting a feeding system integrated and working. We integrated the electrical system to a feeding system and made it capable of feeding a predescribed amount of wire as given through the Arduino Serial Console.</p>
                                         <span class = "image left">
                                             <img src = "images/Wire_Feeder.jpg">
                                         </span>
-                                    <p> This specific sprint we machined an improved version of our previous wire feeding prototype. The wire is pulled between two wheels: one connected to a stepper motor with higher torque and the other connected to an adjustable base and left free to rotate. 
-                                    </p>
 
-                                    <h3 class="major">Mechanical Lessons from the the Sprint</h3>
-                                    <p>While testing our feeding system we discovered that our new motors had enough torque but required a high amount of pressure between the two wheels to have enough grip to pull the wire through.
+                                    <h3 class="major">Integration Lessons from the the Sprint</h3>
+                                    <p>The main integration lessons from this sprint was that we had issues with the precision of how much is fed and how much slip occurs. This is likely due to system level imprecisions for either the stepper control and friction within the system. 
                                     </p>
 
                                     <h3 class="major"> Sprint 3: 11/10/15</h3>
-                                    <p>For the third sprint our group focused on getting a working wire feeding system and bending system with basic controls. In particular, we primarily worked on developing a 3D printed mount for our bending mechanism. The bending mechanism was designed to work by applying a pressure against the wire via a roller wheel driven by a servo motor.  
-                                    The wire was guided to the bending mechanism via brass guide tubes in order to maintain straightness of the wire.  
+                                    <p>For the third sprint, we focused on getting a full minimum viable product working. This was composed of a working wire feeding and bending mechanism working that interfaces with the console. We began preparing the electrical system for integration with the mechanical system via moving our electronics from a breadboard to a protoboard. 
                                     </p>
                                         <span class = "image left">
                                             <img src = "images/Wire_Feeder_Bending_System .png">
                                         </span>
-                                    <p> 
-                                    </p>
 
-                                    <h3 class="major">Mechanical Lessons from the the Sprint</h3>
-                                    <p>We found that the precision of the device was lacking. This may have been due to excessive friction within the system due to not being fed straight into the brass tube. Consequently, we are looking at solutions that range from minimizing the degrees of freedom of the wire to looking at the accuracy of the software feed. 
+                                    <h3 class="major">Integration Lessons from the the Sprint</h3>
+                                    <p>We still had issues with precision of parts and friction within the system. Consequently, we are focusing on reducing these imprecisions. 
                                     </p>
 
                                     <h3 class="major"> Sprint 4: 12/1/15</h3>
@@ -107,7 +105,7 @@
                                     <p> 
                                     </p>
 
-                                    <h3 class="major">Mechanical Lessons from the the Sprint</h3>
+                                    <h3 class="major">Integration Lessons from the the Sprint</h3>
                                     <p> We found that 3D-printed material was not nearly strong enough for the bending mechanism. As a result, looking forward to future projects, we would plan with the awareness that PLA 3D-printed parts are non-ideal for surviving mechanical stresses. 
                                     </p>
                                     <h3 class="major"> Final CAD Diagrams: 12/1/15</h3>
