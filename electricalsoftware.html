@@ -56,10 +56,12 @@
                                 <div class="inner">
 
                                     <h3 class="major">Sprint One</h3>
-                                    <span class="image left"> <img src="images/electrical_1.jpg"> </span>
+
                                     <p> October 25 2015</p>
                                     <p> Sprint Goal: Create a working, integrated prototype that can cut and feed wire.</p>
-                                    <p>For the electrical component of the first sprint, we wanted to figure out control of the the stepper motors and implement some input sensors that would control a parameter of the system (motor speed, feed time, etc.). We obtained a couple stepper motors from the mechanical stockrooom and an LCD from the electrical stockroom. To test the stepper motors, we measured the resistance between pairs of leads to determine the internal coil wiring. From this information, we could correctly wire the stepper motors to the Adafruit motor driver shield. For this sprint, we chose to use the Adafruit motor shield as a driver to simplify the interfacing between the stepper motors and the Arduino. Additionally, all of us have interacted with the motor shield in the previous lab and there are many available for us to use. Referencing the example code, we successfully implemented control of the stepper motors using the motor shield.</p>
+                                    <p>
+                                        <span class="image right"> <img src="images/electrical_1.jpg"> </span>
+                                        For the electrical component of the first sprint, we wanted to figure out control of the the stepper motors and implement some input sensors that would control a parameter of the system (motor speed, feed time, etc.). We obtained a couple stepper motors from the mechanical stockrooom and an LCD from the electrical stockroom. To test the stepper motors, we measured the resistance between pairs of leads to determine the internal coil wiring. From this information, we could correctly wire the stepper motors to the Adafruit motor driver shield. For this sprint, we chose to use the Adafruit motor shield as a driver to simplify the interfacing between the stepper motors and the Arduino. Additionally, all of us have interacted with the motor shield in the previous lab and there are many available for us to use. Referencing the example code, we successfully implemented control of the stepper motors using the motor shield.</p>
                                     
                                     <p>Since the motors were functioning properly we added two input sensors: a potentiometer and a button. The potentiometer reads a value between 1023. The value was then converted to a value corresponding to the number of holes on a breadboard one wished the length of wire to cross using simple math. By reading this value in the code, the user was able to choose a value for the length of the wire. The button used a debounce and an interrupt which we learned in Lab 1 to be read accurately. When the button was pressed, the value currently given by the potentiometer was selected as the length of the wire to be cut. </p>
 
@@ -86,12 +88,24 @@
                                     <h3 class="major">Sprint Four</h3>
                                     <p> December 1 2015 </p>
                                     <p> Sprint Goal: Create our MVP by integrating software systems, refining mechanical systems, and moving electrical systems to protoboard</p>
+
+                                    <p> In this sprint we vastly improved on the interface between the computer and Arduino. In the previous sprint the GUI would show up on the screen but was actually non-functional. So for this sprint it was redesigned from the ground up using the python libraries Tkinter and pySerial. Tkinter was used to create the GIU itself, while pySerial connected to the Arduino through serial. </p>
+                                        
+                                    <p> The interface had to be simple to use so that those not familiar with the project could still use it. Thus the interface includes text on how to operate it and was designed to have few, well labeled, buttons. To aid the user, the commands that have been entered are displayed on the right side of the GUI. The integration of the code on the Arduino with the python code using serial was time consuming because it required some unusual syntax as a result of the way the tkinter code interacted with the serial communications. </p>
+
+                                    <p> In order to make the interface work on different computers, a COM port selection dropdown menu was added to the GIU. This way when a new computer is used with the bender it isn’t a hassle to set up. </p>
+
+                                    <p> Due to the asynchronous nature of the AccelStepper library functions we call on the Arduino, using the serial as a buffer did not make sense. If all of the commands were sent to the Arduino initially, they would be all attempted to be executed simultaneously. Additionally, the Arduino Uno's serial buffer is only 64 bytes, which would limit our bend jobs to 16 commands, given 4 bytes per command. To overcome this issue, we set up a queue on the Arduino.</p>
+
+                                    <p> The Arduino code was restructured to have four main running states: ready, initializing, running, and ending. A queue of actions is also stored on the Arduino, where actions/commands consist of an action type (bend or feed) and an action amount. During the ready state, the Arduino waits for a "START" command over serial from the connected computer. Receiving this command advances the run state to initializing, where the Arduino prompts the computer for commands until the queue is full. Once the queue is full, the run state changes to running. In the running state, the Arduino executes commands in the queue, prompting for a new command when the currently executing command is completed. Once all of the commands in the bend job have been sent to the Arduino, the computer sends "END" over serial instead of another command, prompting the Arduino to enter the ending state. During the ending state, the remaining actions in the queue are executed, and the job is over when the all remaining actions have been completed.</p>
+
+                                    <p> Although this method of serial communication with an asynchronous queue is definitely not the easiest route, it allows for much more future expansion. Furthermore, there is technically no limit on the length of the bend job, assuming serial communication does not fail.</p>
+
+                                    <p> Finally, in addition to fully integrating the software and electrical components, some changes in stepper motor control were made to increase accuracy. Before each action, the relevant stepper motor is enabled, allowing it to lock back into physical step position before rotating the specified amount. This fixed the problem seen in the previous sprint, where the stepper motors appeared to skip steps even when under no load. Additionally, acceleration was employed for both the feeding and bending stepper motors to reduce the chance of slippage and step skipping.</p> 
                                     
                                     <h3 class="major">Circuit Diagram</h3>
-                                    <p> 
-
-                                    </p>
-                                    <span class="image left"> <img src="images/POE_Circuit_Diagram_schem.png"> </span>
+                                    
+                                    <span class="image fit"> <img src="images/POE_Circuit_Diagram_schem.png"> </span>
 
                                 </div>
                             </div>
