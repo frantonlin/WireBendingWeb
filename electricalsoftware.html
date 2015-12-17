@@ -47,7 +47,7 @@
                         <header>
                             <div class="inner">
                                 <h2>Electrical + Software</h2>
-                                <p>A statement about electrical + software.</p>
+                                <p>In order to bend or feed anything, we needed to control stepper motors via an Arduino and Python interface. We started from an analog button press, proceeded to the Arduino Serial Console, and then culminated with a Python program on a laptop.</p>
                             </div>
                         </header>
 
@@ -104,8 +104,12 @@
                                     <p> Finally, in addition to fully integrating the software and electrical components, some changes in stepper motor control were made to increase accuracy. Before each action, the relevant stepper motor is enabled, allowing it to lock back into physical step position before rotating the specified amount. This fixed the problem seen in the previous sprint, where the stepper motors appeared to skip steps even when under no load. Additionally, acceleration was employed for both the feeding and bending stepper motors to reduce the chance of slippage and step skipping.</p> 
                                     
                                     <h3 class="major">Circuit Diagram</h3>
+                                    <p>All connections and resistor values were chosen according to the motor driver and LCD datasheets. The stepper motor drivers are current limiting, and have an adjusting potentiometer located on the board. Pins M1 and M2 are tied to ground to enable full step size. Pins dir, step, and enable are connected to digital pins on the Arduino to allow for dynamic control. The motors were wired to the drivers such that the leads connected to the same coil are wired together in pairs.</p>
                                     
                                     <span class="image fit"> <img src="images/POE_Circuit_Diagram_schem.png"> </span>
+
+                                    <h3 class="major">Code</h3>
+                                    Here are links to <a href="https://github.com/cgbeck/WireBending">the Arduino and Python repository</a> and the <a href="https://github.com/frantonlin/WireBendingWeb">website repository.</a>
 
                                 </div>
                             </div>
